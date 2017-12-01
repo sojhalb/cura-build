@@ -551,6 +551,7 @@ SectionEnd
 
 Section "Open STL files with Cura"
     ${RegisterExtension} "$INSTDIR\Cura.exe" ".stl" "Cura.model.STL"
+    WriteRegStr HKCU "SOFTWARE\Classes\.stl" "" "Cura.model.STL"
 SectionEnd
 
 Section /o "Open X3D files with Cura"
