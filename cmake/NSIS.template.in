@@ -541,11 +541,11 @@ FunctionEnd
 
 !include "FileAssociation.nsh"
 
-Section /o "Open 3MF files with Cura"
+Section "Open 3MF files with Cura"
     ${RegisterExtension} "$INSTDIR\Cura.exe" ".3mf" "@CPACK_PACKAGE_NAME_NO_WHITESPACES@.3mf.@CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@" "3MF model file"
 SectionEnd
 
-Section /o "Open OBJ files with Cura"
+Section "Open OBJ files with Cura"
     ${RegisterExtension} "$INSTDIR\Cura.exe" ".obj" "@CPACK_PACKAGE_NAME_NO_WHITESPACES@.obj.@CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@" "OBJ model file"
 SectionEnd
 
@@ -553,7 +553,7 @@ Section "Open STL files with Cura"
     ${RegisterExtension} "$INSTDIR\Cura.exe" ".stl" "@CPACK_PACKAGE_NAME_NO_WHITESPACES@.stl.@CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@" "STL model file"
 SectionEnd
 
-Section /o "Open X3D files with Cura"
+Section "Open X3D files with Cura"
     ${RegisterExtension} "$INSTDIR\Cura.exe" ".x3d" "@CPACK_PACKAGE_NAME_NO_WHITESPACES@.x3d.@CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@" "X3D model file"
 SectionEnd
 
