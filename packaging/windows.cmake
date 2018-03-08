@@ -54,8 +54,8 @@ endif()
 include(CPackComponent)
 
 cpack_add_component(_cura DISPLAY_NAME "Ultimaker Cura Executable and Data Files" REQUIRED)
-cpack_add_component(vcredist DISPLAY_NAME "Install Visual Studio 2015 Redistributable")
-cpack_add_component(arduino DISPLAY_NAME "Install Arduino Drivers" DISABLED)
+cpack_add_component(vcredist DISPLAY_NAME "Install Visual Studio 2015 Redistributable" DISABLED)
+cpack_add_component(arduino DISPLAY_NAME "Install Arduino Drivers" OPTIONAL)
 
 set(CPACK_GENERATOR "NSIS")
 set(CPACK_PACKAGE_NAME "Ultimaker Cura")
