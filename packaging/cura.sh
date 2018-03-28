@@ -2,8 +2,8 @@
 
 scriptdir=$(dirname $0)
 
-export PYTHONPATH=$scriptdir/lib/python3.6
-export LD_LIBRARY_PATH=$scriptdir
+export PYTHONPATH=$scriptdir/lib
+export LD_LIBRARY_PATH=$scriptdir/lib
 export QT_PLUGIN_PATH=$scriptdir/qt/plugins
 export QML2_IMPORT_PATH=$scriptdir/qt/qml
 export QT_QPA_FONTDIR=/usr/share/fonts
