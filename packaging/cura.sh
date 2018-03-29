@@ -2,6 +2,7 @@
 
 scriptdir=$(dirname $0)
 
+export PATH=$scriptdir:$PATH
 export PYTHONPATH=$scriptdir/lib
 export LD_LIBRARY_PATH=$scriptdir/lib
 export QT_PLUGIN_PATH=$scriptdir/qt/plugins
