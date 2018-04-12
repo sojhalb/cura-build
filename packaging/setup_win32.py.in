@@ -67,7 +67,7 @@ hooks.load_PyQt5_QtQuick = load_pyqt5_qtquick
 def load_pyqt5_qtnetwork(finder, module):
     finder.IncludeModule("PyQt5.QtCore")
 
-    ssl_lib_dir = "@CMAKE_PREFIX_PATH@/lib"
+    ssl_lib_dir = "@CMAKE_PREFIX_PATH@/bin"
     required_ssl_files = [
         "libeay32.dll",
         "ssleay32.dll",
