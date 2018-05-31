@@ -55,6 +55,7 @@ hooks.load_scipy = load_scipy
 
 def load_pyqt5_qtquick(finder, module):
     finder.IncludeModule("PyQt5.QtCore")
+    finder.IncludeModule("PyQt5.QtDBus")
     finder.IncludeModule("PyQt5.QtGui")
     finder.IncludeModule("PyQt5.QtQml")
     finder.IncludeModule("PyQt5.QtNetwork")
@@ -97,7 +98,7 @@ build_options = {
         "cura",
         "stl",
         "Savitar",
-        "PyQt5.QtDBus",
+        "PyQt5",
         "comtypes",
         "Charon",
     ],
