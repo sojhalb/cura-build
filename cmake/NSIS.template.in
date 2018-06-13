@@ -1,4 +1,5 @@
 ; CPack install script designed for a nmake build
+!include "LogicLib.nsh"
 
 ;--------------------------------
 ; You must define these values
@@ -129,6 +130,11 @@ Var AR_RegFlags
   ;Input: section index constant name specified in Section command.
 
   !insertmacro "Remove_${${SecName}}"
+!macroend
+
+!macro RemoveUserData
+  RMDir /r "$APPDATA\cura"
+  RMDir /r "$LOCALAPPDATA\cura"
 !macroend
 
 ; Determine whether the selection of SecName changed
@@ -796,6 +802,17 @@ Function un.onInit
 
 FunctionEnd
 
+UninstPage custom createUninstallPage
+
+Function createUninstallPage
+  Var /GLOBAL remove_user_data
+  StrCpy $remove_user_data ""
+  Section /o "Remove user data"
+    StrCpy $remove_user_data "true"
+  SectionEnd
+FunctionEnd
+
+
 ;--- Add/Remove callback functions: ---
 !macro SectionList MacroName
   ;This macro used to perform operation on multiple sections.
@@ -831,9 +848,6 @@ SectionEnd
 Function .onSelChange
   !insertmacro SectionList MaybeSelectionChanged
 FunctionEnd
-
-;--------------------------------
-;Uninstaller Section
 
 Section "Uninstall"
   ReadRegStr $START_MENU SHCTX \
@@ -924,6 +938,10 @@ Section "Uninstall"
   secondStartMenuDeleteLoopDone:
 
   DeleteRegKey /ifempty SHCTX "Software\@CPACK_PACKAGE_VENDOR@\@CPACK_PACKAGE_INSTALL_REGISTRY_KEY@"
+
+  ${If} $remove_user_data == "true"
+    !insertmacro RemoveUserData
+  ${EndIf}
 
   Push $INSTDIR\bin
   StrCmp $DO_NOT_ADD_TO_PATH_ "1" doNotRemoveFromPath 0
